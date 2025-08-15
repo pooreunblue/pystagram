@@ -3,4 +3,6 @@ from django.shortcuts import render, redirect
 from users.forms import LoginForm
 
 def login_view(request):
-        return render(request, "users/login.html")
+    if request.user.is_authenticated:
+        return redirect("/posts/feeds/")
+    return render(request, "users/login.html", context)
