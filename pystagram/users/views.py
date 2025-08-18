@@ -39,3 +39,6 @@ def logout_view(request):
 
     # logout 처리 후, 로그인 페이지로 이동한다
     return redirect("/users/login/")
+
+def signup(request):
+    return render(request, "users/signup.html")
