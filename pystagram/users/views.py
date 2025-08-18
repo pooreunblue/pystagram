@@ -32,3 +32,10 @@ def login_view(request):
         form = LoginForm()
         context = {"form": form}
         return render(request, "users/login.html", context)
+
+def logout_view(request):
+    # logout 함수 호출에 request를 전달한다
+    logout(request)
+
+    # logout 처리 후, 로그인 페이지로 이동한다
+    return redirect("/users/login/")
