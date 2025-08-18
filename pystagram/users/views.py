@@ -24,7 +24,7 @@ def login_view(request):
                 return redirect("/posts/feeds/")
             # 사용자가 없다면 "실패했습니다" 로그 출력
             else:
-                print("로그인에 실패했습니다")
+                form.add_error(None, "입력한 자격증명에 해당하는 사용자가 없습니다")
         # 어떤 경우든 실패한 경우(데이터 검증, 사용자 검사) 다시 LoginForm을 사용한 로그인 페이지 렌더링
         context = {"form": form}
         return render(request, "users/login.html", context)
