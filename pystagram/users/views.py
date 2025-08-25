@@ -45,19 +45,10 @@ def signup(request):
     if request.method == "POST":
         form = SignupForm(data=request.POST, files=request.FILES)
         if form.is_valid():
-            username = form.cleaned_data["username"]
-            password1 = form.cleaned_data["password1"]
-            password2 = form.cleaned_data["password2"]
-            profile_image = form.cleaned_data["profile_image"]
-            short_description = form.cleaned_data["short_description"]
-            user = User.objects.create_user(
-                username=username,
-                password=password1,
-                profile_image=profile_image,
-                short_description=short_description,
-            )
+            user = form.save()
             login(request, user)
             return redirect("/posts/feeds/")
+
         # Form에 에러가 있다면, 에러를 포함한 Form을 사용해 회원가입 페이지를 보여준다
         else:
             context = {"form": form}
