@@ -5,6 +5,10 @@ class CommentInline(admin.TabularInline):
     model = Comment
     extra = 1
 
+class PostImageInline(admin.TabularInline):
+    model = PostImage
+    extra = 1
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = [
@@ -14,6 +18,7 @@ class PostAdmin(admin.ModelAdmin):
 
     inlines = [
         CommentInline,
+        PostImageInline,
     ]
 
 @admin.register(PostImage)
