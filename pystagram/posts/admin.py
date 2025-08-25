@@ -12,6 +12,10 @@ class PostAdmin(admin.ModelAdmin):
         "content",
     ]
 
+    inlines = [
+        CommentInline,
+    ]
+
 @admin.register(PostImage)
 class PostImageAdmin(admin.ModelAdmin):
     list_display = [
