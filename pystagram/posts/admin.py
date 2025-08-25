@@ -1,6 +1,10 @@
 from django.contrib import admin
 from posts.models import Post, PostImage, Comment
 
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 1
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = [
