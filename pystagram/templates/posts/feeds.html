@@ -36,6 +36,17 @@
                     <button>Likes(0)</button>
                     <span>Comments(0)</span>
                 </div>
+                <div class="post-comments">
+                    <ul>
+                        <!-- 각 Post에 연결된 PostComment들을 순회 -->
+                        {% for comment in post.comment_set.all %}
+                            <li>
+                                <span>{{ comment.user.username }}</span>
+                                <span>{{ comment.content }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </article>
         {% endfor %}
     </div>
