@@ -1,3 +1,4 @@
+from posts.forms import CommentForm
 from django.shortcuts import render, redirect
 from posts.models import Post
 
@@ -8,5 +9,9 @@ def feeds(request):
 
     # 모든 글 목록을 템플릿으로 전달
     posts = Post.objects.all()
-    context = {"posts": posts}
+    comment_form = CommentForm()
+    context = {
+        "posts": posts,
+        "comment_form": comment_form,
+    }
     return render(request, "posts/feeds.html", context)
