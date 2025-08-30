@@ -52,7 +52,7 @@
                 </div>
                 <small>{{ pos.created }}</small>
                 <div class="post-comment-create">
-                    <form method="POST">
+                    <form method="POST" action="/posts/comment_add/">
                         {% csrf_token %}
                         {{ comment_form.content }}
                         <button type="submit">게시</button>
