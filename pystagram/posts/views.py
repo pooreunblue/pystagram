@@ -17,6 +17,6 @@ def feeds(request):
     }
     return render(request, "posts/feeds.html", context)
 
-    @require_POST # 댓글 작성을 처리할 View, Post 요청만 허용한다
-    def comment_add(request):
+@require_POST # 댓글 작성을 처리할 View, Post 요청만 허용한다
+def comment_add(request):
         print(request.POST)
