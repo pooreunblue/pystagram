@@ -1,6 +1,7 @@
 from posts.forms import CommentForm
 from django.shortcuts import render, redirect
 from posts.models import Post
+from django.views.decorators.http import require_POST
 
 def feeds(request):
     # 요청에 포함된 사용자가 로그인하지 않은 경우
@@ -15,3 +16,7 @@ def feeds(request):
         "comment_form": comment_form,
     }
     return render(request, "posts/feeds.html", context)
+
+    @require_POST # 댓글 작성을 처리할 View, Post 요청만 허용한다
+    def comment_add(request):
+        print(request.POST)
