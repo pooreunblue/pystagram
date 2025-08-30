@@ -54,7 +54,7 @@
                 <div class="post-comment-create">
                     <form method="POST">
                         {% csrf_token %}
-                        {{ comment_form.as_p }}
+                        {{ comment_form.content }}
                         <button type="submit">게시</button>
                     </form>
                 </div>
