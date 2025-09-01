@@ -1,7 +1,8 @@
 from posts.forms import CommentForm
-from django.shortcuts import render, redirect
 from posts.models import Post
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
+from django.http import HttpResponseRedirect
 
 def feeds(request):
     # 요청에 포함된 사용자가 로그인하지 않은 경우
@@ -36,4 +37,4 @@ def comment_add(request):
             print(comment.content)
             print(comment.user)
             # 생성 완료 후에는 피드 페이지로 다시 이동
-            return redirect("/posts/feeds/")
+            return HttpResponseRedirect(f"/posts/feeds/#post-{comment.post.id}")
