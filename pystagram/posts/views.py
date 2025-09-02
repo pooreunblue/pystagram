@@ -1,4 +1,4 @@
-from posts.forms import CommentForm
+from posts.forms import CommentForm, PostForm
 from posts.models import Post, Comment
 
 from django.shortcuts import render, redirect
