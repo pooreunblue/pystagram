@@ -48,3 +48,6 @@ def comment_delete(request, comment_id):
         return HttpResponseRedirect(f"/posts/feeds/#post-{comment.post.id}")
     else:
         return HttpResponseForbidden("이 댓글을 삭제할 권한이 없습니다")
+
+def post_add(request):
+    return render(request, "posts/post_add.html")
