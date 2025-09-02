@@ -1,8 +1,9 @@
 from posts.forms import CommentForm
 from posts.models import Post, Comment
+
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 
 def feeds(request):
     # 요청에 포함된 사용자가 로그인하지 않은 경우
@@ -41,7 +42,9 @@ def comment_add(request):
 
 @require_POST
 def comment_delete(request, comment_id):
-    if request.method == 'POST':
-        comment = Comment.objects.get(id=comment_id)
+    comment = Comment.objects.get(id=comment_id)
+    if comment.user == request.user:
         comment.delete()
         return HttpResponseRedirect(f"/posts/feeds/#post-{comment.post.id}")
+    else:
+        return HttpResponseForbidden("이 댓글을 삭제할 권한이 없습니다")
