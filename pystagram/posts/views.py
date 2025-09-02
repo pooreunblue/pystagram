@@ -50,4 +50,6 @@ def comment_delete(request, comment_id):
         return HttpResponseForbidden("이 댓글을 삭제할 권한이 없습니다")
 
 def post_add(request):
-    return render(request, "posts/post_add.html")
+    form = PostForm()
+    context = {"form": form}
+    return render(request, "posts/post_add.html", context)
