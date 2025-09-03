@@ -50,7 +50,8 @@
 
                                 <!-- 댓글 삭제 Form 추가 -->
                                 {% if user == comment.user %}
-                                    <form method="POST" action="/posts/comment_delete/{{ comment.id }}/">
+                                    <form method="POST"
+                                          action="{% url 'posts:comment_delete' comment_id=comment.id %}">
                                         {% csrf_token %}
                                         <button type="submit">삭제</button>
                                     </form>
@@ -61,7 +62,7 @@
                 </div>
                 <small>{{ post.created }}</small>
                 <div class="post-comment-create">
-                    <form method="POST" action="/posts/comment_add/">
+                    <form method="POST" action="{% url 'posts:comment_add' %}">
                         {% csrf_token %}
                         <!-- 사용자가 직접 입력하지 않는 고정된 데이터를 form 내부에 위치 -->
                         <input type="hidden" name="post" value="{{ post.id }}">
