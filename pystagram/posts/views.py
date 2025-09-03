@@ -62,10 +62,10 @@ def post_add(request):
 
             # Post를 생성한 후
             # request.FILES.getlist("images")로 전송된 이미지들을 순회하며 PostImage 객체를 생성한다
-            for image_file in request.FILES.getlist("image"):
+            for image_file in request.FILES.getlist("images"):
                 # request.FILES 또는 request.FILES.getlist()로 가져온 파일은
                 # Model의 ImageField 부분에 곧바로 할당한다
-                Post.objects.create(
+                PostImage.objects.create(
                     post=post,
                     photo=image_file,
                 )
