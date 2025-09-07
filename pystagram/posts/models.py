@@ -26,3 +26,6 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, verbose_name="포스트", on_delete=models.CASCADE)
     content = models.TextField("내용")
     created = models.DateTimeField("생성일시", auto_now_add=True)
+
+class Hashtag(models.Model):
+    name = models.CharField("태그명", max_length=50)
