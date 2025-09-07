@@ -8,6 +8,7 @@ class Post(models.Model):
     )
     content = models.TextField("내용")
     created = models.DateTimeField("생성일시", auto_now_add=True)
+    tags = models.ManyToManyField("posts.Hashtag", verbose_name="해시태그 목록", blank=True)
 
 class PostImage(models.Model):
     post = models.ForeignKey(
