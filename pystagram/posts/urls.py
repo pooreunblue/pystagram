@@ -1,5 +1,5 @@
 from django.urls import path
-from posts.views import feeds, comment_add, comment_delete, post_add
+from posts.views import feeds, comment_add, comment_delete, post_add, tags
 
 app_name = "posts"
 urlpatterns = [
