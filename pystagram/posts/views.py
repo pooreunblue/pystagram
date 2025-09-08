@@ -80,3 +80,6 @@ def post_add(request):
 
     context = {"form": form}
     return render(request, "posts/post_add.html", context)
+
+def tags(request, tag_name):
+    return render(request, 'posts/tags.html')
