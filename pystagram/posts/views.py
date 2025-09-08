@@ -83,5 +83,14 @@ def post_add(request):
 
 def tags(request, tag_name):
     tag = HashTag.objects.get(name=tag_name)
-    print(tag)
-    return render(request, 'posts/tags.html')
+
+    # tags(M2M 필드)에 찾은 HashTag 객체가 있는 Post들을 필터
+    post = Post.objects.filter(tags=tag)
+
+    # context로 Template에 필터링된 Post QuerySet을 넘겨주며,
+    # 어떤 tag_name으로 검색했는지 넘겨준다
+    context = {
+        "tag_name": tag_name,
+        "posts": post,
+    }
+    return render(request, 'posts/tags.html', context)
