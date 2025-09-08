@@ -82,6 +82,6 @@ def post_add(request):
     return render(request, "posts/post_add.html", context)
 
 def tags(request, tag_name):
-    tag = Hashtag.objects.get(name=tag_name)
+    tag = HashTag.objects.get(name=tag_name)
     print(tag)
     return render(request, 'posts/tags.html')
