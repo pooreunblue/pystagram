@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav>
+    <h1>
+        <a href="{% url 'posts:feeds' %}">Pystagram</a>
+    </h1>
+    <a href="{% url 'posts:post_add; %}">Add post</a>
+    <a href="{% url 'users:logout' %}">Logout</a>
+</nav>
+<div id="tags">
+  <header class="tags-header">
+      <h2>#{{ tag_name }}</h2>
+      <div>게시물 1,094</div>
+  </header>
+  <div class="post-grid-container">
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+      <div class="post-grid"></div>
+  </div>
+</div>
+{% endblock %}
