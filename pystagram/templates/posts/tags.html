@@ -21,6 +21,8 @@
                     <img src="{{ post.postimage_set.first.photo.url }}" alt="">
                 </div>
             {% endif %}
+      {% empty %}
+            <p>검색딘 게시물이 없습니다</p>
       {% endfor %}
   </div>
 </div>
