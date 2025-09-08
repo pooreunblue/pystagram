@@ -11,17 +11,12 @@
 <div id="tags">
   <header class="tags-header">
       <h2>#{{ tag_name }}</h2>
-      <div>게시물 1,094</div>
+      <div>게시물 {{ posts.count }}</div>
   </header>
   <div class="post-grid-container">
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
-      <div class="post-grid"></div>
+      {% for post in posts %}
+            <div class="post-grid">{{ post.id }}</div>
+      {% endfor %}
   </div>
 </div>
 {% endblock %}
