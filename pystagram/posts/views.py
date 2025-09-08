@@ -1,5 +1,5 @@
 from posts.forms import CommentForm, PostForm
-from posts.models import Post, Comment, PostImage
+from posts.models import Post, Comment, PostImage, HashTag
 
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
@@ -82,4 +82,6 @@ def post_add(request):
     return render(request, "posts/post_add.html", context)
 
 def tags(request, tag_name):
+    tag = Hashtag.objects.get(name=tag_name)
+    print(tag)
     return render(request, 'posts/tags.html')

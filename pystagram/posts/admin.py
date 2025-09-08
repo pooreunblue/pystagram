@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import ManyToManyField
 from django.forms import CheckboxSelectMultiple
 
-from posts.models import Post, PostImage, Comment, Hashtag
+from posts.models import Post, PostImage, Comment, HashTag
 import admin_thumbnails
 
 class CommentInline(admin.TabularInline):
@@ -46,6 +46,6 @@ class CommentAdmin(admin.ModelAdmin):
         "content",
     ]
 
-@admin.register(Hashtag)
+@admin.register(HashTag)
 class HashTagAdmin(admin.ModelAdmin):
     pass
