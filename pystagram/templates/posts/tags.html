@@ -18,7 +18,7 @@
             <!-- Post에 연결된 PostImage가 있으며, 연결된 첫 번째 PostImage의 photo가 비어있지 않은 경우 -->
             {% if post.postimage_set.first and post.postimage_set.first.photo %}
                 <div class="post-grid">
-                    <img src="{{ post.postimage_set.first.photo.url }}" alt=">"
+                    <img src="{{ post.postimage_set.first.photo.url }}" alt="">
                 </div>
             {% endif %}
       {% endfor %}
