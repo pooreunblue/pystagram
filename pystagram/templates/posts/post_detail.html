@@ -3,7 +3,7 @@
 {% block content %}
     {% include 'nav.html' %}
     <div id="feeds" class="post-container">
-        # 상세 페이지로의 URL이 action_redirect_to 변수에 할당된다.
+        <!-- 상세 페이지로의 URL이 action_redirect_to 변수에 할당된다. -->
         {% url 'posts:post_detail' post.id as action_redirect_to %}
         {% include 'posts/post.html' with action_redirect_url=action_redirect_to %}
     </div>
