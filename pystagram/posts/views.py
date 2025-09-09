@@ -106,5 +106,9 @@ def tags(request, tag_name):
 
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
-    context = {"post": post}
+    comment_form = CommentForm()
+    context = {
+        "post": post,
+        "comment_form": comment_form,
+    }
     return render(request, "posts/post_detail.html", context)
