@@ -11,3 +11,5 @@ class User(AbstractUser):
         related_name="like_users",
         blank=True
     )
+    def __str__(self):
+        return self.username
