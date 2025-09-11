@@ -58,3 +58,6 @@ def signup(request):
     # 2. GET 요청으로 빈 form이 생성된 경우 -> 빈 form이 사용자에게 보여진다
     context = {"form": form}
     return render(request, "users/signup.html", context)
+
+def profile(request, user_id):
+    return render(request, "users/profile.html")
