@@ -14,11 +14,20 @@
             <div class="counts">
                 <dl>
                     <dt>Posts</dt>
-                    <dd>{{ users.post_Set.count }}</dd>
+                    <dd>
+                        <a href="{% url 'users:profile' user_id=user.id %}">
+                            {{ users.post_set.count }}</a>
+                    </dd>
                     <dt>Followers</dt>
-                    <dd>{{ users.followers.count }}</dd>
+                    <dd>
+                        <a href="{% url 'users:followers' user_id=user.id %}">
+                            {{ users.followers.count }}</a>
+                    </dd>
                     <dt>Following</dt>
-                    <dd>{{ users.following.count }}</dd>
+                    <dd>
+                        <a href="{% url 'users:following' user_id=user.id %}">
+                            {{ users.following.count }}</a>
+                    </dd>
                 </dl>
             </div>
             <p>{{ users.short_description }}</p>
