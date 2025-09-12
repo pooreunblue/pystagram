@@ -10,23 +10,23 @@
 
         <!--  사용자 정보 영역 -->
         <div class="info-texts">
-            <h1>{{ users.username }}</h1>
+            <h1>{{ user.username }}</h1>
             <div class="counts">
                 <dl>
                     <dt>Posts</dt>
                     <dd>
                         <a href="{% url 'users:profile' user_id=user.id %}">
-                            {{ users.post_set.count }}</a>
+                            {{ user.post_set.count }}</a>
                     </dd>
                     <dt>Followers</dt>
                     <dd>
                         <a href="{% url 'users:followers' user_id=user.id %}">
-                            {{ users.followers.count }}</a>
+                            {{ user.followers.count }}</a>
                     </dd>
                     <dt>Following</dt>
                     <dd>
                         <a href="{% url 'users:following' user_id=user.id %}">
-                            {{ users.following.count }}</a>
+                            {{ user.following.count }}</a>
                     </dd>
                 </dl>
             </div>
